@@ -29,7 +29,7 @@ object AddProducts : HttpHandler{
 
         // Respond that product was added
         val response = gson.toJson("Product added successfully!")
-        exchange.sendResponseHeaders(200, response.toByteArray().size.toLong())
+        exchange.sendResponseHeaders(201, response.toByteArray().size.toLong())
         exchange.responseBody.use { os ->
             os.write(response.toByteArray())
         }

@@ -16,6 +16,7 @@ object Server {
     init {
         server.executor = Executors.newVirtualThreadPerTaskExecutor()
         server.createContext("/addProduct", AddProducts)
+        server.createContext("/products", GetProduct)
     }
 
     fun start() {
