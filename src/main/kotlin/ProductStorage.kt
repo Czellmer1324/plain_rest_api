@@ -16,8 +16,8 @@ object ProductStorage {
 
     fun addProduct(name: String, price: BigDecimal, description: String) {
         val product = Product(nextId, name, price, description)
-        nextId++
         storage[nextId] = product
+        nextId++
     }
 
     fun deleteProduct(id: Int) : Boolean {

@@ -1,10 +1,5 @@
 package com.czellmer1324.server
 
-import com.czellmer1324.ProductStorage
-import com.czellmer1324.requests.AddProductRequest
-import com.google.gson.Gson
-import com.sun.net.httpserver.HttpExchange
-import com.sun.net.httpserver.HttpHandler
 import com.sun.net.httpserver.HttpServer
 import java.net.InetSocketAddress
 import java.util.concurrent.Executors
@@ -16,7 +11,8 @@ object Server {
     init {
         server.executor = Executors.newVirtualThreadPerTaskExecutor()
         server.createContext("/addProduct", AddProducts)
-        server.createContext("/products", GetProduct)
+        server.createContext("/products", GetProducts)
+        server.createContext("/product/", GetProductById)
     }
 
     fun start() {

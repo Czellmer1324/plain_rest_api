@@ -5,7 +5,7 @@ import com.google.gson.Gson
 import com.sun.net.httpserver.HttpExchange
 import com.sun.net.httpserver.HttpHandler
 
-object GetProduct : HttpHandler {
+object GetProducts : HttpHandler {
     override fun handle(exchange: HttpExchange) {
         exchange.responseHeaders.set("Content-Type", "JSON")
         val gson = Gson()
