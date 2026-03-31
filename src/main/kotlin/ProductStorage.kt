@@ -25,4 +25,8 @@ object ProductStorage {
 
         return true
     }
+
+    fun checkProductIdExists(id: Int) : Boolean {
+        return storage.containsKey(id)
+    }
 }

@@ -13,6 +13,7 @@ object Server {
         server.createContext("/addProduct", AddProducts)
         server.createContext("/products", GetProducts)
         server.createContext("/product/", GetProductById)
+        server.createContext("/deleteProduct/", DeleteProduct)
     }
 
     fun start() {
