@@ -7,7 +7,7 @@ import com.sun.net.httpserver.HttpHandler
 
 object GetProducts : HttpHandler {
     override fun handle(exchange: HttpExchange) {
-        exchange.responseHeaders.set("Content-Type", "JSON")
+        exchange.responseHeaders.set("Content-Type", "application/json")
         val gson = Gson()
 
         // verify that the method is get method
@@ -18,6 +18,7 @@ object GetProducts : HttpHandler {
             exchange.responseBody.use { os ->
                 os.write(bytes)
             }
+            return
         }
 
         // need to retrieve the list of products

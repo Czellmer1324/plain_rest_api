@@ -7,13 +7,14 @@ import com.sun.net.httpserver.HttpHandler
 
 object DeleteProduct : HttpHandler {
     override fun handle(exchange: HttpExchange) {
-        exchange.responseHeaders.set("Content-Type", "JSON")
+        exchange.responseHeaders.set("Content-Type", "application/json")
         val gson = Gson()
 
         //Check to make sure method is correct
         if (exchange.requestMethod != "DELETE") {
             val message= gson.toJson("Method not allowed")
             sendResponse(exchange, message, 405)
+            return
         }
 
         // get the ID from the URI.
@@ -27,7 +28,8 @@ object DeleteProduct : HttpHandler {
             // check to make sure the ID exists
             if (!ProductStorage.checkProductIdExists(id)) {
                 val message = gson.toJson("No product exists with that ID")
-                sendResponse(exchange, message, 400)
+                sendResponse(exchange, message, 404)
+                return
             }
 
             ProductStorage.deleteProduct(id)

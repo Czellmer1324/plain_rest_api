@@ -5,8 +5,8 @@ import java.net.InetSocketAddress
 import java.util.concurrent.Executors
 
 object Server {
-    private val server: HttpServer =  HttpServer.create(InetSocketAddress(PORT), 0)
     private const val PORT = 8080
+    private val server: HttpServer =  HttpServer.create(InetSocketAddress(PORT), 0)
 
     init {
         server.executor = Executors.newVirtualThreadPerTaskExecutor()

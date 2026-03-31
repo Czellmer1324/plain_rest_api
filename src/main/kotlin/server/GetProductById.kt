@@ -7,7 +7,7 @@ import com.sun.net.httpserver.HttpHandler
 
 object GetProductById : HttpHandler {
     override fun handle(exchange: HttpExchange) {
-        exchange.responseHeaders.set("Content-Type", "JSON")
+        exchange.responseHeaders.set("Content-Type", "application/json")
         val gson = Gson()
 
         //check to make sure it is a GET request
@@ -18,6 +18,8 @@ object GetProductById : HttpHandler {
             exchange.responseBody.use { os ->
                 os.write(bytes)
             }
+
+            return
         }
 
         // Get the URI and split it based on /'s, get the last part of the array for the ID

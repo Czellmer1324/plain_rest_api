@@ -9,7 +9,7 @@ import com.sun.net.httpserver.HttpHandler
 object AddProducts : HttpHandler{
     override fun handle(exchange: HttpExchange) {
         // Set the header content type as well as create the GSON obj for responding
-        exchange.responseHeaders.set("Content-Type", "JSON")
+        exchange.responseHeaders.set("Content-Type", "application/json")
         val gson = Gson()
 
         // check the method
